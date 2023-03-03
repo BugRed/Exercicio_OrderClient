@@ -9,11 +9,14 @@ import entities.enums.OrderStatus;
 
 public class Order {
 
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	
 	private Date moment = new Date();
 	private OrderStatus status;
+	
 	private Client client;
-	private List<OrderItem> orderListItem = new ArrayList<>();
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	private List<OrderItem> items = new ArrayList<OrderItem>();
+	
 
 	public Order() {
 
@@ -49,18 +52,18 @@ public class Order {
 		return client;
 	}
 
-	public void addOrderItem(OrderItem orderItem) {
-		orderListItem.add(orderItem);
+	public void addOrderItem(OrderItem item) {
+		items.add(item);
 	}
 
-	public void removeOrderItem(OrderItem orderItem) {
-		orderListItem.remove(orderItem);
+	public void removeOrderItem(OrderItem item) {
+		items.remove(item);
 	}
 
 	public double total() {
 		double sum = 0;
-		for (OrderItem o : orderListItem) {
-			sum += o.subTotal();
+		for (OrderItem it : items) {
+			sum += it.subTotal();
 		}
 
 		return sum;
@@ -73,11 +76,11 @@ public class Order {
 		sb.append("Order Status: " + status + "\n");
 		sb.append("Client: " + client + "\n");
 		sb.append("Order items: \n");
-		double total = total();
-		for (OrderItem o : orderListItem) {
-			sb.append(o + "\n");
+		for (OrderItem it: items) {
+			sb.append(it + "\n");
 		}
-		sb.append("Total price: $" + String.format("%.2f%n", total));
+		sb.append("Total price: $"); 
+		sb.append(String.format("%.2f", total()));
 
 		return sb.toString();
 	}

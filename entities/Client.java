@@ -5,10 +5,11 @@ import java.util.Date;
 
 public class Client {
 
+	private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
 	private String name;
 	private String email;
 	private Date birthDate;
-	private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
 	public Client() {
 
@@ -42,6 +43,5 @@ public class Client {
 		sb.append(name + " (" + sdf.format(birthDate) + ") - " + email);
 		return sb.toString();
 	}
-	
 
 }

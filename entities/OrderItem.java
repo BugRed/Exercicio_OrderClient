@@ -3,6 +3,7 @@ package entities;
 public class OrderItem {
 	private Integer quantity;
 	private Double price;
+	
 	private Product product;
 
 	public OrderItem() {
@@ -45,15 +46,13 @@ public class OrderItem {
 
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		double subtotal = subTotal();
-		double price = product.getPrice();
-		sb.append(product.getName() + ", $" 
-		+ String.format("%.2f", price) + ", Quantity: " 
-		+ quantity + ", Subtotal: $" 
-		+ String.format("%.2f", subtotal));
+		return product.getName() + ", $" 
+		+ String.format("%.2f", product.getPrice()) 
+		+ ", Quantity: " 
+		+ quantity + 
+		", Subtotal: $" 
+		+ String.format("%.2f", subTotal());
 		
-		return sb.toString();
 	}
 
 }
