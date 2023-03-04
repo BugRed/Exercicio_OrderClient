@@ -50,9 +50,7 @@ public class Program {
 			System.out.print("Quantity: ");
 			int productQuantity = sc.nextInt();
 
-			OrderItem orderItem = new OrderItem(productQuantity, 
-					productPrice, 
-					new Product(productName, productPrice));
+			OrderItem orderItem = new OrderItem(productQuantity, new Product(productName, productPrice));
 			order.addOrderItem(orderItem);
 			sc.nextLine();
 		}

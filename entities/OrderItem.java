@@ -1,20 +1,20 @@
 package entities;
 
-public class OrderItem {
+public class OrderItem extends Product {
 	private Integer quantity;
-	private Double price;
 	
 	private Product product;
 
 	public OrderItem() {
-
+		super();
 	}
-
-	public OrderItem(Integer quantity, Double price, Product product) {
+	
+	public OrderItem(Integer quantity, Product product) {
+		super();
 		this.quantity = quantity;
-		this.price = price;
 		this.product = product;
 	}
+
 
 	public Integer getQuantity() {
 		return quantity;
@@ -24,13 +24,6 @@ public class OrderItem {
 		this.quantity = quantity;
 	}
 
-	public Double getPrice() {
-		return price;
-	}
-
-	public void setPrice(Double price) {
-		this.price = price;
-	}
 
 	public Product getProduct() {
 		return product;
